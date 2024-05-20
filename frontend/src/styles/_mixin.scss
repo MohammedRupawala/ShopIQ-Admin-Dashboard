@@ -4,8 +4,8 @@
     text-transform: $case;
 }
 @mixin flex($dir :row,
-$justify :centre,
-$alignItems:centre,
+$justify :center,
+$alignItems:center,
 $gap:1rem){
     display: flex;
     flex-direction: $dir;
@@ -34,5 +34,9 @@ $gap:1rem){
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+@mixin square($s:1rem){
+    width : $s;
+    height: $s;
 }
 
