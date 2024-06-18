@@ -5,6 +5,8 @@ import { FaRegBell } from 'react-icons/fa'
 import userImg from "../assets/profile.png"
 import { HiTrendingDown,HiTrendingUp } from 'react-icons/hi'
 import data from "../assets/data.json"
+import { BarCharts, DoughnutChart } from '../components/BarCharts'
+import { BiMaleFemale } from 'react-icons/bi'
 const Dashboard = () => {
   return (
     <div className='adminContainer'>
@@ -43,11 +45,20 @@ const Dashboard = () => {
                           <h2>
                             Revenue & Transaction
                           </h2>
+                          <BarCharts 
+                          data1={[300,144,433,655,237,255,190]}
+                          data2={[200,444,343,556,778,455,990]}
+                          title1="Revenue"
+                          title2="Transaction"
+                          bgColor1="rgb(0,115,255)"
+                          bgColor2="rgba(53,162,235,0.8)"
+                          />
                         </div>
                         <div className="inventory">
                           <h2> 
                             Inventory 
                           </h2>
+                        
                           <div>
                          {
                           data.categories.map((i)=>(
@@ -62,6 +73,18 @@ const Dashboard = () => {
                           
                         </div>
 
+                      </section>
+                      <section className="transaction">
+                        <div className="gender">
+                          <h2>Gender Ratio</h2>
+                          {<DoughnutChart 
+                          labels={["Male","Female"]}
+                          data={[12,19]}
+                          backgroundColor={["hsl(340,82%,56%)","rgba(56,162,235,8.8)"]}
+                          cutout={90}/>}
+                          <p><BiMaleFemale/></p>
+                          <div className="table"></div>
+                        </div>
                       </section>
           </main>
     </div>
