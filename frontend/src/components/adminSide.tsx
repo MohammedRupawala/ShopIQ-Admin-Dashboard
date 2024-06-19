@@ -85,7 +85,7 @@ const DivChart = ({Locate} : {Locate : Location})=>{
          url="/admin/apps/stopwatch">
          </Li>
          <Li 
-         text={"Coupo"} 
+         text={"Coupons"} 
          Icon={RiCoupon3Fill}
          location={Locate} 
          url="/admin/apps/coupons">

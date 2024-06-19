@@ -7,6 +7,7 @@ import { HiTrendingDown,HiTrendingUp } from 'react-icons/hi'
 import data from "../assets/data.json"
 import { BarCharts, DoughnutChart } from '../components/BarCharts'
 import { BiMaleFemale } from 'react-icons/bi'
+import Table from "../components/DashboardTable"
 const Dashboard = () => {
   return (
     <div className='adminContainer'>
@@ -83,8 +84,11 @@ const Dashboard = () => {
                           backgroundColor={["hsl(340,82%,56%)","rgba(56,162,235,8.8)"]}
                           cutout={90}/>}
                           <p><BiMaleFemale/></p>
-                          <div className="table"></div>
+                          {/* <div className="table">
+                          <Table data={data.transaction}/>
+                          </div> */}
                         </div>
+                        <Table data={data.transaction}/>
                       </section>
           </main>
     </div>

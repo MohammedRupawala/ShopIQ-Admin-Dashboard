@@ -1,5 +1,5 @@
-import React from 'react'
-import {useTable,Column, TableOptions} from "react-table"
+
+import {useTable,Column,TableOptions} from "react-table"
 
 function TableHoc<T extends object>(
     columns:Column<T>[],
@@ -12,15 +12,46 @@ function TableHoc<T extends object>(
             columns,
             data
         }
-        const table  = useTable(options);
+        const {getTableProps,getTableBodyProps,headerGroups,rows,prepareRow}  = useTable(options);
         return (
         <div className={containerClassname}>
             <h2 className="heading">{heading}</h2>
-            <table className='table'>
-                <thead>
-
+            <table className='table' {...getTableProps}>
+                <thead >
+                    {
+                        headerGroups.map((headerGroup)=>(
+                            <tr{...headerGroup.getHeaderGroupProps()}>
+                           { headerGroup.headers.map((column)=>(
+                                <th{...column.getHeaderProps()}>
+                                {
+                                    column.render("Header")
+                                }
+                                </th>
+                            ))}</tr>
+                        ))
+                    }
                 </thead>
-                <tbody></tbody>
+                <tbody {...getTableBodyProps}>
+                    {
+                        rows.map((row)=>{
+                            prepareRow(row);
+                            return(
+                                <tr{...row.getRowProps()}>
+                                {
+                                    row.cells.map((cell)=>(
+                                        <td {...cell.getCellProps()}>
+                                            {
+                                                cell.render("Cell")
+                                            }
+                                        </td>
+                                    ))
+                                }
+                                </tr>
+                            )
+                        })
+                    }
+
+                </tbody>
             </table>
         </div>
         )
