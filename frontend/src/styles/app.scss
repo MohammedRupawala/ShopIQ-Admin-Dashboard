@@ -1,5 +1,6 @@
 @import "_mixin";
 @import "_dashboard";
+@import "_products";
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -118,6 +119,24 @@
       &:last-child {
         border-right: none;
       }
+    }
+  }
+}
+
+.tablePagination{
+  @include flex;
+  padding: 2rem;
+  > button {
+    padding: 0.5rem 1rem;
+    border:none;
+    outline:none;
+    border-radius: 10px;
+    cursor : pointer;
+    background-color: rgba(0,115,255);
+    color: white;
+    &:disabled{
+      background-color: rgba(0,115,255,0.1);
+      cursor: not-allowed;
     }
   }
 }
