@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback, useState } from 'react'
+import  { ReactElement, useCallback, useState } from 'react'
 import AdminSide from '../components/adminSide'
 import TableHoc from '../components/TableHoc'
 import { Column } from 'react-table'
