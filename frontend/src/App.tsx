@@ -1,27 +1,37 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import {lazy,Suspense} from "react"
-import Loader from "./components/Loader"
-const Dashboard = lazy(()=>import("./pages/dashboard"))
-const Products = lazy(()=> import("./pages/products"))
-const Customer = lazy(()=> import("./pages/Customer"))
-const Transaction = lazy(()=> import("./pages/Transaction"))
+import { lazy, Suspense } from 'react';
+import Loader from './components/Loader';
+const NewProduct = lazy(() => import('./pages/Management/NewProduct'));
+const  ProductManagement = lazy(()=>import( './pages/Management/ProductManagement'));
+const TransactionManage = lazy(()=>import('./pages/Management/TransactionManage'));
+const Dashboard = lazy(() => import('./pages/dashboard'));
+const Products = lazy(() => import('./pages/products'));
+const Customer = lazy(() => import('./pages/Customer'));
+const Transaction = lazy(() => import('./pages/Transaction'));
+const BarChart = lazy(() => import('./pages/Charts/BarChart'));
+const PieChart = lazy(() => import('./pages/Charts/PieChart'));
+const LineChart = lazy(() => import('./pages/Charts/LineChart'));
 
 function App() {
   return (
     <BrowserRouter>
-    <Suspense fallback={<Loader/>}>
-    <Routes>
-     
-     <Route path="/admin/dashboard" element={<Dashboard/>}/>
-     <Route path="/admin/products" element={<Products/>} />
-     <Route path="/admin/customer" element={<Customer/>} />
-     <Route path="/admin/transaction" element={<Transaction/>} />
-  
-     </Routes>
-    </Suspense>
-      </BrowserRouter>
-  )
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/admin/dashboard" element={<Dashboard />} />
+          <Route path="/admin/products" element={<Products />} />
+          <Route path="/admin/customer" element={<Customer />} />
+          <Route path="/admin/transaction" element={<Transaction />} />
+          <Route path="/admin/product/new" element={<NewProduct />} />
+          <Route path="/admin/product/:id" element={<ProductManagement />} />
+          <Route path="/admin/Transaction/:id" element={<TransactionManage />} />
+          <Route path="/admin/charts/bar" element={<BarChart />} />
+          <Route path="/admin/charts/pie" element={<PieChart />} />
+          <Route path="/admin/charts/line" element={<LineChart />} />
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

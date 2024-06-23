@@ -32,7 +32,7 @@ const columns :Column<Data>[]= [{
 ]
 
 const DashboardTable = ({data = []}:{data:Data[]}) => {
-  return TableHoc<Data>(columns,data,"transactionBox","Top Transaction")();
+  return TableHoc<Data>(columns,data,"transactionBox","Top Transaction",false)();
 }
 
 export default DashboardTable
