@@ -15,7 +15,6 @@ import {
   Filler,
 } from 'chart.js';
 import { Bar, Doughnut,Line,Pie } from 'react-chartjs-2';
-import { LiaNeos } from 'react-icons/lia';
 
 
 ChartJS.register(
